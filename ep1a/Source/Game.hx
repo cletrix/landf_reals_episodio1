@@ -11,6 +11,7 @@ class Game extends BaseSprite {
 
 	public function new() {
 		super();
+
 		bg = new Background();
 		logo = new Logo();
 		addChild(bg);

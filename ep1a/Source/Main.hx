@@ -3,8 +3,9 @@ package;
 import openfl.display.StageAlign;
 import openfl.display.StageScaleMode;
 import openfl.events.Event;
+import openfl.display.Sprite;
 
-class Main extends Container {
+class Main extends Sprite {
 	var game:Game;
 
 	public function new() {
@@ -15,7 +16,7 @@ class Main extends Container {
 			addEventListener(Event.ADDED_TO_STAGE, init);
 	}
 
-	private function init(e:Event = null):Void {
+	function init(e:Event = null):Void {
 		if (e != null)
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 
@@ -31,9 +32,9 @@ class Main extends Container {
 		onResize(null);
 	}
 
-	override private function onResize(e:Event):Void {
-		var w = getW();
-		var h = getH();
+	function onResize(e:Event):Void {
+		var w = stage.stageWidth;
+		var h = stage.stageHeight;
 
 		var landscape = w >= h;
 		var effW:Float = landscape ? 1280 : 720;

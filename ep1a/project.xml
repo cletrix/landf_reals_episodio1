@@ -12,7 +12,6 @@
 	<assets path="Assets" rename="assets" />
 	<assets path="Assets/fonts" rename="fonts" />
 	
-	<!-- Set fixed resolution 1280x720 (720p) for both cpp and html5 -->
-	<window width="1280" height="720" orientation="landscape" resizable="true" />
+	<window width="1280" height="720" orientation="landscape" resizable="true" if="cpp"/>
 
 </project>

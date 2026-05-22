@@ -29,7 +29,7 @@ class Main extends Sprite {
 		addChild(game);
 		addChild(resLabel);
 
-		adjustLayout();
+		onResize(null);
 
 		#if html5
 		js.Browser.window.addEventListener("resize", function(_) onResize(null));
@@ -57,19 +57,14 @@ class Main extends Sprite {
 	private function onResize(e:Event):Void {
 		var rw = getRealWidth();
 		var rh = getRealHeight();
-		trace('stage: ${stage.stageWidth}x${stage.stageHeight} | real: ${rw}x${rh} | ratio: ${Math.round(rw / rh * 100) / 100}');
-		adjustLayout();
-	}
-
-	private function adjustLayout():Void {
 		var w = stage.stageWidth;
 		var h = stage.stageHeight;
 
-		game.resize(w, h);
+		trace('stage: ${stage.stageWidth}x${stage.stageHeight} | real: ${rw}x${rh} | ratio: ${Math.round(rw / rh * 100) / 100}');
+
+		game.resize(w, h, rw, rh);
 		game.position(0, 0);
 
-		var rw = getRealWidth();
-		var rh = getRealHeight();
 		resLabel.text = '${rw}x${rh}';
 		resLabel.x = w - resLabel.width - 10;
 		resLabel.y = 10;

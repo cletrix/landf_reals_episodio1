@@ -14,8 +14,8 @@ class Game extends BaseSprite {
 		addChild(logo);
 	}
 
-	public function resize(w:Float, h:Float):Void {
-		bg.resize(w, h);
+	public function resize(w:Float, h:Float, realW:Float, realH:Float):Void {
+		bg.resize(w, h, realW, realH);
 		logo.position_in_center(w / 2, h / 2);
 	}
 }

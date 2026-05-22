@@ -4,11 +4,9 @@ import openfl.display.Sprite;
 import openfl.display.StageAlign;
 import openfl.display.StageScaleMode;
 import openfl.events.Event;
-import go.Label;
 
 class Main extends Sprite {
 	var game:Game;
-	var resLabel:Label;
 
 	public function new() {
 		super();
@@ -28,12 +26,7 @@ class Main extends Sprite {
 
 		game = new Game();
 
-		resLabel = new Label("", "fonts/Jellee.ttf", 20, 0, 0, 200, 30);
-		resLabel.fontColor = 0xFFFFFF;
-		resLabel.textAlign = "RIGHT";
-
 		addChild(game);
-		addChild(resLabel);
 
 		stage.addEventListener(Event.RESIZE, onResize);
 		#if html5
@@ -75,9 +68,5 @@ class Main extends Sprite {
 		game.resize(effW, effH);
 		game.uniformScale(s);
 		game.position_in_center(w / 2, h / 2);
-
-		resLabel.text = '${w}x${h}';
-		resLabel.x = w - resLabel.width - 10;
-		resLabel.y = 10;
 	}
 }

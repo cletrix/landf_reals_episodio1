@@ -37,11 +37,26 @@ class Main extends Sprite {
 
 		stage.addEventListener(Event.RESIZE, onResize);
 		#if html5
-		js.Browser.window.addEventListener("resize", function(_) onResize(null));
+		js.Browser.window.addEventListener("resize", function(_) {
+			syncCanvasToWindow();
+			onResize(null);
+		});
+		syncCanvasToWindow();
 		#end
 
 		onResize(null);
 	}
+
+	// Força o canvas a ter exatamente as dimensoes da janela do browser.
+	// Sem isso, stage coords e window coords ficam em sistemas diferentes.
+	#if html5
+	private function syncCanvasToWindow():Void {
+		lime.app.Application.current.window.resize(
+			js.Browser.window.innerWidth,
+			js.Browser.window.innerHeight
+		);
+	}
+	#end
 
 	private function getW():Int {
 		#if html5

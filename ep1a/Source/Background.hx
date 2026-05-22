@@ -10,6 +10,7 @@ class Background extends BaseSprite {
 	var origLandH:Float;
 	var origPortW:Float;
 	var origPortH:Float;
+	var currentImg:Image;
 
 	public function new() {
 		super();
@@ -19,19 +20,20 @@ class Background extends BaseSprite {
 		origLandH = imgLand.height;
 		origPortW = imgPort.width;
 		origPortH = imgPort.height;
-		imgPort.visible = false;
-		addChild(imgLand);
-		addChild(imgPort);
+		currentImg = null;
 	}
 
-	public function resize(w:Float, h:Float, realW:Float, realH:Float):Void {
-		var landscape = realW >= realH;
-		imgLand.visible = landscape;
-		imgPort.visible = !landscape;
-
+	public function resize(w:Float, h:Float):Void {
+		var landscape = w >= h;
 		var img = landscape ? imgLand : imgPort;
 		var iW = landscape ? origLandW : origPortW;
 		var iH = landscape ? origLandH : origPortH;
+
+		if (img != currentImg) {
+			if (currentImg != null) removeChild(currentImg);
+			addChild(img);
+			currentImg = img;
+		}
 
 		var s = Math.max(w / iW, h / iH);
 		img.scaleX = s;

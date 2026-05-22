@@ -1,6 +1,8 @@
 package;
 
 import openfl.display.Sprite;
+import openfl.display.StageAlign;
+import openfl.display.StageScaleMode;
 import openfl.events.Event;
 import go.Label;
 
@@ -20,6 +22,10 @@ class Main extends Sprite {
 		if (e != null)
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 
+		stage.align = StageAlign.TOP_LEFT;
+		stage.scaleMode = StageScaleMode.NO_SCALE;
+		stage.color = 0x000000;
+
 		game = new Game();
 
 		resLabel = new Label("", "fonts/Jellee.ttf", 20, 0, 0, 200, 30);
@@ -29,16 +35,15 @@ class Main extends Sprite {
 		addChild(game);
 		addChild(resLabel);
 
-		onResize(null);
-
+		stage.addEventListener(Event.RESIZE, onResize);
 		#if html5
 		js.Browser.window.addEventListener("resize", function(_) onResize(null));
-		#else
-		stage.addEventListener(Event.RESIZE, onResize);
 		#end
+
+		onResize(null);
 	}
 
-	private function getRealWidth():Int {
+	private function getW():Int {
 		#if html5
 		return js.Browser.window.innerWidth;
 		#else
@@ -46,7 +51,7 @@ class Main extends Sprite {
 		#end
 	}
 
-	private function getRealHeight():Int {
+	private function getH():Int {
 		#if html5
 		return js.Browser.window.innerHeight;
 		#else
@@ -55,17 +60,21 @@ class Main extends Sprite {
 	}
 
 	private function onResize(e:Event):Void {
-		var rw = getRealWidth();
-		var rh = getRealHeight();
-		var w = stage.stageWidth;
-		var h = stage.stageHeight;
+		var w = getW();
+		var h = getH();
 
-		trace('stage: ${stage.stageWidth}x${stage.stageHeight} | real: ${rw}x${rh} | ratio: ${Math.round(rw / rh * 100) / 100}');
+		var landscape = w >= h;
+		var effW:Float = landscape ? 1280 : 720;
+		var effH:Float = landscape ? 720 : 1280;
+		var s = Math.min(w / effW, h / effH);
 
-		game.resize(w, h, rw, rh);
-		game.position(0, 0);
+		trace('window: ${w}x${h} | game: ${effW}x${effH} | scale: ${Math.round(s * 100) / 100} | ${landscape ? "landscape" : "portrait"}');
 
-		resLabel.text = '${rw}x${rh}';
+		game.resize(effW, effH);
+		game.uniformScale(s);
+		game.position_in_center(w / 2, h / 2);
+
+		resLabel.text = '${w}x${h}';
 		resLabel.x = w - resLabel.width - 10;
 		resLabel.y = 10;
 	}

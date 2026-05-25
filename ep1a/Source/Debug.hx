@@ -8,6 +8,7 @@ class Debug extends BaseSprite {
 	var fps:FPS;
 	var verLabel:Label;
 	var resLabel:Label;
+	var dprLabel:Label;
 
 	public function new() {
 		super();
@@ -18,9 +19,16 @@ class Debug extends BaseSprite {
 		resLabel = new Label("", "fonts/Jellee.ttf", 20, 0, 0, 200, 30);
 		resLabel.fontColor = 0xFFFFFF;
 		resLabel.textAlign = "RIGHT";
+		dprLabel = new Label("", "fonts/Jellee.ttf", 16, 10, 28, 100, 25);
+		dprLabel.fontColor = 0xFFFFFF;
 		addChild(fps);
 		addChild(verLabel);
 		addChild(resLabel);
+		addChild(dprLabel);
+	}
+
+	public function setDpr(hiRes:Bool):Void {
+		dprLabel.text = hiRes ? "img: 2x" : "img: 1x";
 	}
 
 	public function resize(w:Float, h:Float):Void {

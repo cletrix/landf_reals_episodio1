@@ -18,6 +18,7 @@ class Game extends BaseSprite {
 		addChild(logo);
 		#if debug
 		debug = new Debug();
+		debug.setDpr(bg.hiRes);
 		addChild(debug);
 		#end
 	}

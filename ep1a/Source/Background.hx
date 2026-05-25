@@ -18,6 +18,7 @@ class Background extends BaseSprite {
 	public function new() {
 		super();
 		hiRes = getDevicePixelRatio() >= 2.0;
+		trace("HiRes: " + hiRes + " (" + getDevicePixelRatio() + ")");
 
 		var suffix = hiRes ? "@2x" : "";
 		landscape = createImageData('assets/images/bg/bg-landscape$suffix.jpg');

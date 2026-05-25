@@ -17,23 +17,12 @@ class Background extends BaseSprite {
 
 	public function new() {
 		super();
-		hiRes = getScreenMaxDimension() >= 1280;
-		trace("HiRes: " + hiRes + " (screen max: " + getScreenMaxDimension() + "px)");
+		hiRes = Control.hiRes;
 
-		var suffix = hiRes ? "@2x" : "";
+		var suffix = Control.suffix;
 		landscape = createImageData('assets/images/bg/bg-landscape$suffix.jpg');
 		portrait = createImageData('assets/images/bg/bg-portrait$suffix.jpg');
 		currentImg = null;
-	}
-
-	function getScreenMaxDimension():Float {
-		#if js
-		var w = js.Browser.window.screen.width;
-		var h = js.Browser.window.screen.height;
-		return Math.max(w, h);
-		#else
-		return 0.0;
-		#end
 	}
 
 	function createImageData(path:String):ImageData {
@@ -50,7 +39,7 @@ class Background extends BaseSprite {
 	}
 
 	public function resize(w:Float, h:Float):Void {
-		var isLandscape = w >= h;
+		var isLandscape = Control.isLandscape;
 		var data = isLandscape ? landscape : portrait;
 		var img = data.image;
 

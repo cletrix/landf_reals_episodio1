@@ -20,6 +20,8 @@ class Main extends Sprite {
 		if (e != null)
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 
+		tools.Screen.check();
+
 		stage.align = StageAlign.TOP_LEFT;
 		stage.scaleMode = StageScaleMode.NO_SCALE;
 		stage.color = 0x5B0351;
@@ -36,7 +38,9 @@ class Main extends Sprite {
 		var w = stage.stageWidth;
 		var h = stage.stageHeight;
 
-		var landscape = w >= h;
+		tools.Screen.update(w, h);
+
+		var landscape = Control.isLandscape;
 		var effW:Float = landscape ? 1280 : 720;
 		var effH:Float = landscape ? 720 : 1280;
 		var s = Math.min(w / effW, h / effH);

@@ -17,8 +17,8 @@ class Background extends BaseSprite {
 
 	public function new() {
 		super();
-		hiRes = getDevicePixelRatio() >= 2.0;
-		trace("HiRes: " + hiRes + " (" + getDevicePixelRatio() + ")");
+		hiRes = getScreenMaxDimension() >= 1280;
+		trace("HiRes: " + hiRes + " (screen max: " + getScreenMaxDimension() + "px)");
 
 		var suffix = hiRes ? "@2x" : "";
 		landscape = createImageData('assets/images/bg/bg-landscape$suffix.jpg');
@@ -26,11 +26,13 @@ class Background extends BaseSprite {
 		currentImg = null;
 	}
 
-	function getDevicePixelRatio():Float {
+	function getScreenMaxDimension():Float {
 		#if js
-		return js.Browser.window.devicePixelRatio;
+		var w = js.Browser.window.screen.width;
+		var h = js.Browser.window.screen.height;
+		return Math.max(w, h);
 		#else
-		return 1.0;
+		return 0.0;
 		#end
 	}
 

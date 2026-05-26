@@ -4,7 +4,7 @@ import go.BaseSprite;
 import go.Image;
 
 class PageBackground extends BaseSprite {
-	static inline var PATH = "assets/images/background.jpg";
+	static inline var PATH = "assets/images/background.png";
 
 	var image:Image;
 

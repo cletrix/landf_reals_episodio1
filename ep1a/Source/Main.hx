@@ -7,6 +7,7 @@ import openfl.display.Sprite;
 import tools.Screen;
 
 class Main extends Sprite {
+	var pageBg:PageBackground;
 	var game:Game;
 
 	public function new() {
@@ -26,6 +27,9 @@ class Main extends Sprite {
 		stage.align = StageAlign.TOP_LEFT;
 		stage.scaleMode = StageScaleMode.NO_SCALE;
 		stage.color = 0x5B0351;
+
+		pageBg = new PageBackground();
+		addChild(pageBg);
 
 		game = new Game();
 		addChild(game);

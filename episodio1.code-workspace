@@ -5,12 +5,7 @@
       "path": "."
     },
     {
-      "name": "landf_game_bingo",
-      "path": "/Users/cleyton/Dev/LandF/landf_stage/landf_game_bingo"
-    },
-    {
-      "name": "landf_haxe_libs",
-      "path": "/Users/cleyton/Dev/LandF/landf_stage/landf_haxe_libs"
+      "path": "../landf_haxe_libs"
     }
   ]
 }

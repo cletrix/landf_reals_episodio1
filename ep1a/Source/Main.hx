@@ -4,6 +4,7 @@ import openfl.display.StageAlign;
 import openfl.display.StageScaleMode;
 import openfl.events.Event;
 import openfl.display.Sprite;
+import tools.Screen;
 
 class Main extends Sprite {
 	var game:Game;
@@ -20,7 +21,7 @@ class Main extends Sprite {
 		if (e != null)
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 
-		tools.Screen.check();
+		Screen.check();
 
 		stage.align = StageAlign.TOP_LEFT;
 		stage.scaleMode = StageScaleMode.NO_SCALE;
@@ -38,7 +39,7 @@ class Main extends Sprite {
 		var w = stage.stageWidth;
 		var h = stage.stageHeight;
 
-		tools.Screen.update(w, h);
+		Screen.updateFormat(w, h);
 
 		var landscape = Control.isLandscape;
 		var effW:Float = landscape ? 1280 : 720;

@@ -17,7 +17,7 @@ class Screen {
 		Control.hiRes = hiRes;
 	}
 
-	public static function update(w:Float, h:Float):Void {
+	public static function updateFormat(w:Float, h:Float):Void {
 		Control.isLandscape = (w >= h);
 	}
 }

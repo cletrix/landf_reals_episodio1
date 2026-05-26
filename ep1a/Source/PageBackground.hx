@@ -13,6 +13,9 @@ class PageBackground extends BaseSprite {
 		mouseEnabled = false;
 		mouseChildren = false;
 
+		trace("PageBackground");
+
+		graphics.beginFill(0x000000);
 		image = new Image(PATH);
 		addChild(image);
 	}

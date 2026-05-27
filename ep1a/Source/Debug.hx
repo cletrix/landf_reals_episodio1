@@ -19,7 +19,7 @@ class Debug extends BaseSprite {
 		resLabel = new Label("", "fonts/Jellee.ttf", 20, 0, 0, 200, 30);
 		resLabel.fontColor = 0xFFFFFF;
 		resLabel.textAlign = "RIGHT";
-		dprLabel = new Label("", "fonts/Jellee.ttf", 16, 10, 28, 100, 25);
+		dprLabel = new Label("", "fonts/Jellee.ttf", 16, 10, 48, 100, 25);
 		dprLabel.fontColor = 0xFFFFFF;
 		addChild(fps);
 		addChild(verLabel);

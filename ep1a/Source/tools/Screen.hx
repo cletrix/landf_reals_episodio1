@@ -11,7 +11,6 @@ class Screen {
 		#end
 
 		var hiRes = maxDim >= 1280;
-		trace("HiRes: " + hiRes + " (screen max: " + maxDim + "px)");
 
 		Control.suffix = hiRes ? "@2x" : "";
 		Control.hiRes = hiRes;

@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-	
+
 	<meta title="episodio1" package="com.luckyandfun.episodio1" version="0.0.1" company="LandF/Reals" />
 	<app main="Main" path="Export" file="Episodio1" />
-	
+
 	<source path="Source" />
 
 	<!-- DOUGLAS -->
 	<!-- <source path="../../../landf/landf_haxe_libs/ctx" />  -->
 	<!-- CLEYTON -->
-	<source path="../../../../LandF/landf_stage/landf_haxe_libs/ctx" />
-	
-	
+	<!-- <source path="../../../../LandF/landf_stage/landf_haxe_libs/ctx" /> -->
+	<!--HENRIQUE -->
+	<source path="../../landf_haxe_libs/ctx" />
+
+
 	<haxelib name="openfl" />
-	
+
 	<assets path="Assets" rename="assets" />
 	<assets path="Assets/fonts" rename="fonts" />
-	
+
 	<window width="1280" height="720" orientation="landscape" resizable="true" if="cpp"/>
 
 </project>

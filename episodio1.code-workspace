@@ -5,12 +5,13 @@
       "path": "."
     },
     {
-      "name": "landf_game_bingo",
-      "path": "/Users/cleyton/Dev/LandF/landf_stage/landf_game_bingo"
+      "path": "../landf_haxe_libs"
     },
     {
-      "name": "landf_haxe_libs",
-      "path": "/Users/cleyton/Dev/LandF/landf_stage/landf_haxe_libs"
+      "path": "../landf_image_editor"
+    },
+    {
+      "path": "../landf_reals_episodio2"
     }
   ]
 }

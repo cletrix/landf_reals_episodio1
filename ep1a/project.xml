@@ -5,6 +5,10 @@
 	<app main="Main" path="Export" file="Episodio1" />
 	
 	<source path="Source" />
+
+	<!-- DOUGLAS -->
+	<!-- <source path="../../../landf/landf_haxe_libs/ctx" />  -->
+	<!-- CLEYTON -->
 	<source path="../../../../LandF/landf_stage/landf_haxe_libs/ctx" />
 	
 	

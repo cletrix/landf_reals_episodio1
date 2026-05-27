@@ -4,3 +4,4 @@ ep1a/Export/
 display.hxml
 .vscode/
 .claude/
+*.code-workspace

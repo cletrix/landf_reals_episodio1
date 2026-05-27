@@ -50,6 +50,7 @@ class Main extends Sprite {
 
 		game.resize(effW, effH);
 		game.uniformScale(s);
-		game.position_in_center(w / 2, h / 2);
+		game.x = (w - effW * s) / 2;
+		game.y = (h - effH * s) / 2;
 	}
 }

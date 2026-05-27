@@ -1,4 +1,0 @@
--cp ep1a/Source
--cp ../../landf/landf_haxe_libs/ctx
--lib openfl
--js _display.js

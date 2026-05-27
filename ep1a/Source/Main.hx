@@ -24,11 +24,7 @@ class Main extends Sprite {
 
 		Screen.check();
 
-		// stage.align = StageAlign.TOP_LEFT;
-		// stage.scaleMode = StageScaleMode.NO_SCALE;
-		// stage.color = 0x5B0351;
-
-		pageBg = new PageBackground();
+		pageBg = new PageBackground("assets/images/pageBackground/background.jpg");
 		addChild(pageBg);
 
 		game = new Game();
@@ -44,6 +40,8 @@ class Main extends Sprite {
 		var h = stage.stageHeight;
 
 		Screen.updateFormat(w, h);
+
+		pageBg.resize(w, h);
 
 		var landscape = Control.isLandscape;
 		var effW:Float = landscape ? 1280 : 720;
